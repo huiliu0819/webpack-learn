@@ -1,31 +1,9 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const webpack = require('webpack')
-// presets: [
-  //   [
-  //     '@babel/preset-env', 
-  //     {
-  //       targets: {
-  //         chrome: "67",
-  //       },
-  //       useBuiltIns: 'usage',
-  //       corejs: 3
-  //     },
-  //   ]
-  // ]
 module.exports = {
-  mode: 'development',
-  devtool: 'cheap-module-eval-source-map', 
   entry: {
     main: './src/index.js'
-  },
-  devServer: {
-    contentBase: './dist',
-    open: true,
-    port: 3000,
-    hot: true,
-    hotOnly: true
   },
   module: {
     rules: [
@@ -72,7 +50,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({template:'./index.html'}),
     new CleanWebpackPlugin(),
-    new webpack.HotModuleReplacementPlugin()
   ],
   output: {
     filename: '[name].js',
